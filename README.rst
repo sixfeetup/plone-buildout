@@ -2,55 +2,85 @@
 Using the Simple Plone Buildout
 ===============================
  
-Get started by cloning this repository::
+Get started by cloning this repository
 
- $ git clone https://github.com/sixfeetup/simple-plone-buildout
+.. code:: sh
+
+   $ git clone https://github.com/sixfeetup/simple-plone-buildout
 
 First step, you will need to copy the ``buildout.cfg_tmpl`` into the
-buildout root, and then uncomment the `profiles/testing.cfg` profile::
+buildout root, the `profiles/testing.cfg` profile is active by default, but
+you can use any of the other. The descriptions of them are below
 
- $ cd simple-plone-buildout
- $ cp profiles/buildout.cfg.tmpl buildout.cfg
- $ vi buildout.cfg
+.. code:: sh
+
+    $ cd simple-plone-buildout
+    $ cp profiles/buildout.cfg.tmpl buildout.cfg
 
 Then you need to run::
 
  $ virtualenv env
  
 This will create an env directory with a virtual environment. You should then
-install the versions of `zc.buildout` and `setuptools` you need::
+install the versions of `zc.buildout` and `setuptools` you need
 
- $ env/bin/pip install -r requirements.txt
+.. code:: sh
 
-To create an instance, run::
+   $ env/bin/pip install -r requirements.txt
 
- $ env/bin/buildout
- 
+To create an instance, run
+
+.. code:: sh
+
+   $ env/bin/buildout
+
+Do not be alarmed if you see the following
+
+.. code:: python
+
+   SyntaxError: 'return' outside function
+
+**Ignore** SyntaxErrors that scroll by while you enjoy your coffee. It's just
+a Zope Script (Python) thing.
+
 This will download Plone's eggs and products for you, as well as other 
 dependencies, create a new Zope 2 installation, and create a new Zope instance
 configured with these products.
 
-You can start your Zope instance by running::
+You can start your Zope instance by running
 
- $ bin/instance fg
+.. code:: sh
+
+   $ bin/instance fg
  
-or, to run in background mode::
+or, to run in background mode
 
- $ bin/instance start
+.. code:: sh
+
+   $ bin/instance start
+
+Enjoy!
+------
+
+Navigate your browser to `<http://localhost:8080>`_
+
+The initial ZMI user is **admin** with **admin** as the password.
  
 
 Working with buildout.cfg
 -------------------------
 
-You can change any option in buildout.cfg and re-run bin/buildout to reflect
-the changes. This may delete things inside the 'parts' directory, but should
-keep your Data.fs and source files intact.
+You can change any option in `base.cfg` and re-run `bin/buildout` to reflect
+the changes. This may delete things inside the `parts` directory, but should
+keep your `Data.fs` and source files intact.
 
-To save time, you can run buildout in "offline" (-o) and non-updating (-N)
+To save time, you can run buildout in non-updating (-N)
 mode, which will prevent it from downloading things and checking for new
-versions online::
+versions online
 
- $ bin/buildout -Nov
+.. code:: sh
+
+   $ bin/buildout -Nv
 
 Extending buildout configs
 --------------------------
@@ -120,12 +150,12 @@ Download and double click install the following installers.
 * `Python 2.7.11 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2711>`_
 
   * When installing, ensure the option for "Add python.exe to Path" is active
+  * After installing, make sure `python.exe` is in your Path
 
 * `Microsoft Visual C++ Compiler for Python 2.7 <http://aka.ms/vcpython27>`_
 * `Git for Windows <https://git-for-windows.github.io>`_
-* Open PowerShell and install `virtualenv` and `pypiwin32`::
+* Open PowerShell and install `virtualenv`::
 
     PS C:\Users\foo> pip install virtualenv
-    PS C:\Users\foo> pip install pypiwin32
 
 You are now ready to follow the instructions at the top of this file, but keep in mind that your `virtualenv` will not have a `bin` directory. It will be called `Scripts` so adjust the commands accordingly.
