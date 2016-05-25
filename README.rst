@@ -1,10 +1,15 @@
-=======================
-Using a custom buildout
-=======================
+===============================
+Using the Simple Plone Buildout
+===============================
  
-First step, you will need to copy the ``buildout.cfg_tmpl`` into the
-buildout root, and then select the profile you want to run::
+Get started by cloning this repository::
 
+ $ git clone https://github.com/sixfeetup/plone-buildout
+
+First step, you will need to copy the ``buildout.cfg_tmpl`` into the
+buildout root, and then uncomment the `profiles/testing.cfg` profile::
+
+ $ cd plone-buildout
  $ cp profiles/buildout.cfg.tmpl buildout.cfg
  $ vi buildout.cfg
 
@@ -13,7 +18,7 @@ Then you need to run::
  $ virtualenv env
  
 This will create an env directory with a virtual environment. You should then
-install the versions of zc.buildout and setuptools you need:
+install the versions of `zc.buildout` and `setuptools` you need::
 
  $ env/bin/pip install -r requirements.txt
 
@@ -27,15 +32,11 @@ configured with these products.
 
 You can start your Zope instance by running::
 
- $ bin/instance start
- 
-or, to run in foreground mode::
-
  $ bin/instance fg
  
-To run unit tests, you can use::
+or, to run in background mode::
 
- $ bin/instance test -s my.package
+ $ bin/instance start
  
 
 Working with buildout.cfg
@@ -96,15 +97,12 @@ release.cfg
   also contains some configuration that is common for each release stage.
 
 versions.cfg
-  This contains the pinned versions of packages for use when release to production
+  This contains the pinned versions of packages for use when release to production.
 
 testing.cfg
   The dev config merely sets up the proper port and ip-address for the dev
-  site to run on.
-
-staging.cfg
-  The maint config merely sets up the proper port and ip-address for the maint
-  site to run on.
+  site to run on. This profile also does not use a `zeoserver` part to simplify
+  operation on windows and those wanting to just try Plone.
 
 prod.cfg
   The prod config is similar to the dev and maint configs in that it sets up
@@ -113,31 +111,18 @@ prod.cfg
   sizes, set up pound, squid, nginx, etc.  This will be the config used to run
   the site in production mode.
 
-Depending on a new egg
-----------------------
-
-If you want to use a new egg that is in the Python Package Index, all you need
-to do is to add it to the "eggs" option under the main ``[buildout]`` section::
-
- [buildout]
- ...
- eggs =
-    my.package
-    
-If it's listed somewhere else than the Python Package Index, you can add a link
-telling buildout where to find it in the 'find-links' option::
-
- [buildout]
- ...
- find-links =
-    http://dist.plone.org
-    http://download.zope.org/distribution/
-    http://effbot.org/downloads
-    http://some.host.com/packages
-    
-
 =============
 Using Windows
 =============
 
-TODO: Rewrite this section
+Download and double click install the following installers.
+
+* [Python 2.7.11 x86-64 MSI Installer](https://www.python.org/downloads/release/python-2711)
+  * When installing, ensure the option for "Add python.exe to Path" is active
+* [Microsoft Visual C++ Compiler for Python 2.7](http://aka.ms/vcpython27)
+* [Git for Windows](https://git-for-windows.github.io]
+* Open PowerShell and install `virtualenv` and `pypiwin32`
+  * `PS C:\Users\foo> pip install virtualenv`
+  * `PS C:\Users\foo> pip install pypiwin32`
+
+You are now ready to follow the instructions at the top of this file, but keep in mind that your `virtualenv` will not have a `bin` directory. It will be called `Scripts` so adjust the commands accordingly.
