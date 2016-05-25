@@ -6,7 +6,7 @@ Get started by cloning this repository
 
 .. code:: sh
 
-   $ git clone https://github.com/sixfeetup/simple-plone-buildout
+   $ git clone https://github.com/plone/simple-plone-buildout
 
 First, copy the ``buildout.cfg_tmpl`` into the buildout root. The 
 ``profiles/testing.cfg`` profile is active by default, but you can use any of
