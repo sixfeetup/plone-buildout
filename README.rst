@@ -4,12 +4,12 @@ Using the Simple Plone Buildout
  
 Get started by cloning this repository::
 
- $ git clone https://github.com/sixfeetup/plone-buildout
+ $ git clone https://github.com/sixfeetup/simple-plone-buildout
 
 First step, you will need to copy the ``buildout.cfg_tmpl`` into the
 buildout root, and then uncomment the `profiles/testing.cfg` profile::
 
- $ cd plone-buildout
+ $ cd simple-plone-buildout
  $ cp profiles/buildout.cfg.tmpl buildout.cfg
  $ vi buildout.cfg
 
