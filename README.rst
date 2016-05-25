@@ -117,11 +117,14 @@ Using Windows
 
 Download and double click install the following installers.
 
-* [Python 2.7.11 x86-64 MSI Installer](https://www.python.org/downloads/release/python-2711)
+* `Python 2.7.11 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2711>`_
+
   * When installing, ensure the option for "Add python.exe to Path" is active
-* [Microsoft Visual C++ Compiler for Python 2.7](http://aka.ms/vcpython27)
-* [Git for Windows](https://git-for-windows.github.io]
+
+* `Microsoft Visual C++ Compiler for Python 2.7]<http://aka.ms/vcpython27>`_
+* `Git for Windows <https://git-for-windows.github.io>`_
 * Open PowerShell and install `virtualenv` and `pypiwin32`
+
   * `PS C:\Users\foo> pip install virtualenv`
   * `PS C:\Users\foo> pip install pypiwin32`
 
