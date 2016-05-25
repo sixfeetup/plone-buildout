@@ -121,11 +121,11 @@ Download and double click install the following installers.
 
   * When installing, ensure the option for "Add python.exe to Path" is active
 
-* `Microsoft Visual C++ Compiler for Python 2.7]<http://aka.ms/vcpython27>`_
+* `Microsoft Visual C++ Compiler for Python 2.7 <http://aka.ms/vcpython27>`_
 * `Git for Windows <https://git-for-windows.github.io>`_
-* Open PowerShell and install `virtualenv` and `pypiwin32`
+* Open PowerShell and install `virtualenv` and `pypiwin32`::
 
-  * `PS C:\Users\foo> pip install virtualenv`
-  * `PS C:\Users\foo> pip install pypiwin32`
+    PS C:\Users\foo> pip install virtualenv
+    PS C:\Users\foo> pip install pypiwin32
 
 You are now ready to follow the instructions at the top of this file, but keep in mind that your `virtualenv` will not have a `bin` directory. It will be called `Scripts` so adjust the commands accordingly.
