@@ -2,6 +2,8 @@
 Using the Simple Plone Buildout
 ===============================
  
+`Windows users, click this link to get started <#using-windows>`_
+
 Get started by cloning this repository
 
 .. code:: sh
