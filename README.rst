@@ -72,7 +72,7 @@ The initial ZMI user is **admin** with **admin** as the password.
 Working with buildout.cfg
 -------------------------
 
-You can change any option in ``base.cfg`` and re-run ``bin/buildout`` to reflect
+You can change any option in ``base.cfg`` and re-run ``env/bin/buildout`` to reflect
 the changes. This may delete things inside the ``parts`` directory, but should
 keep your ``Data.fs`` and source files intact.
 
@@ -82,7 +82,7 @@ versions online
 
 .. code:: sh
 
-   $ bin/buildout -Nv
+   $ env/bin/buildout -Nv
 
 Extending buildout configs
 --------------------------
@@ -111,16 +111,16 @@ debug.cfg
   package to make note of is PDBDebugMode.  It will open up a pdb prompt
   anytime there is an error.  This will cause the page to hang until you tell
   pdb to (c)ontinue.
-  
+
   The debug config also contains a way to 'refresh' your product in
   plone.reload.  You can access it like this::
-  
+
     http://<zope_host>:<zope_port>/@@reload
-  
+
   And also a way of recording doctests::
-  
+
     http://<zope_host>:<zope_port>/++resource++recorder/index.html
-  
+
   Take a look at the config to see what other tools are available.
 
 release.cfg
@@ -150,7 +150,7 @@ Using Windows
 
 Download and double click install the following installers.
 
-* `Python 2.7.11 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2711>`_
+* `Python 2.7.12 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2712>`_
 
   * When installing, ensure the option for "Add python.exe to Path" is active
   * After installing, make sure ``python.exe`` is in your Path
