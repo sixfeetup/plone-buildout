@@ -2,6 +2,18 @@
 UNIX
 ====
 
+Requirements
+============
+
+- Python 2.7
+- Git
+- A compiler, usually GCC
+
+For a full list of requirements please consult the `documentation about requirements <https://docs.plone.org/manage/installing/requirements.html>`_.
+
+Installing Plone
+================
+
 Get started by cloning this repository:
 
 .. code-block:: shell
