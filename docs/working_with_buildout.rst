@@ -48,11 +48,11 @@ debug.cfg
   The debug config also contains a way to 'refresh' your product in
   plone.reload.  You can access it like this::
 
-    http://<plone_host>:<plone_port>/@@reload
+    http://localhost:8080/@@reload
 
   And also a way of recording doctests::
 
-    http://<plone_host>:<plone_port>/++resource++recorder/index.html
+    http://localhost:8080/++resource++recorder/index.html
 
   Take a look at the config to see what other tools are available.
 
