@@ -10,6 +10,12 @@ Get started by cloning this repository
 
    $ git clone https://github.com/plone/simple-plone-buildout
 
+On Windows:
+  
+.. code:: bat
+
+  C:\Users\foo> git clone https://github.com/plone/simple-plone-buildout
+
 First, copy the ``buildout.cfg_tmpl`` into the buildout root. The 
 ``profiles/testing.cfg`` profile is active by default, but you can use any of
 the others. See descriptions below.
@@ -19,10 +25,23 @@ the others. See descriptions below.
     $ cd simple-plone-buildout
     $ cp profiles/buildout.cfg.tmpl buildout.cfg
 
+On Windows:
+
+.. code:: bat
+
+  C:\Users\foo> cd simple-plone-buildout
+  C:\Users\foo\simple-plone-buildout> copy profiles\buildout.cfg.tmpl buildout.cfg
+
 Then you need to run::
 
  $ virtualenv env
  
+On Windows:
+
+.. code:: bat
+
+  C:\Users\foo\simple-plone-buildout> virtualenv env
+
 This will create an env directory with a virtual environment. You should then
 install the versions of ``zc.buildout`` and ``setuptools`` you need
 
@@ -30,11 +49,23 @@ install the versions of ``zc.buildout`` and ``setuptools`` you need
 
    $ env/bin/pip install -r requirements.txt
 
+On Windows, use the ``Scripts`` directory instead of ``bin``:
+
+.. code:: bat
+
+  C:\Users\foo\simple-plone-buildout> env\Scripts\pip install -r requirements.txt
+
 To create an instance, run
 
 .. code:: sh
 
    $ env/bin/buildout
+
+On Windows:
+
+.. code:: bat
+
+  C:\Users\foo\simple-plone-buildout> env\Scripts\buildout
 
 Do not be alarmed if you see the following
 
@@ -42,31 +73,43 @@ Do not be alarmed if you see the following
 
    SyntaxError: 'return' outside function
 
-**Ignore** ``SyntaxErrors`` that scroll by while you enjoy your coffee. It's just
-a Zope Script (Python) thing.
+**Ignore** ``SyntaxErrors`` that scroll by while you enjoy your coffee. 
 
-This will download Plone's eggs and products for you, as well as other 
-dependencies, create a new Zope 2 installation, and create a new Zope instance
-configured with these products.
+This will download Plone's eggs and modules for you, as well as other 
+dependencies and create a new Plone instance.
 
-You can start your Zope instance by running
+You can start your Plone instance by running
 
 .. code:: sh
 
    $ bin/instance fg
  
+On Windows:
+
+.. code:: bat
+
+    C:\Users\foo\simple-plone-buildout> bin\instance fg
+
 or, to run in background mode
 
 .. code:: sh
 
    $ bin/instance start
 
+On Windows:
+
+.. code:: bat
+
+    C:\Users\foo\simple-plone-buildout> bin\instance start
+
+
+
 Enjoy!
 ------
 
 Navigate your browser to `<http://localhost:8080>`_
 
-The initial ZMI user is **admin** with **admin** as the password.
+The initial user is **admin** with **admin** as the password.
  
 
 Working with buildout.cfg
@@ -98,7 +141,7 @@ buildout.cfg.tmpl
 base.cfg
   The base config contains all of the configuration for the basis of the site.
   Typical sections include zope2, instance, zeoserver and plone.  In this
-  config we include all the eggs and products that will be used in all of the
+  config we include all the eggs and modules that will be used in all of the
   extended configs.
 
 local.cfg
@@ -107,7 +150,7 @@ local.cfg
   development.  It extends base.cfg and debug.cfg
 
 debug.cfg
-  The debug config contains all of our debugging products and packages. One
+  The debug config contains all of our debugging modules and packages. One
   package to make note of is PDBDebugMode.  It will open up a pdb prompt
   anytime there is an error.  This will cause the page to hang until you tell
   pdb to (c)ontinue.
@@ -115,11 +158,11 @@ debug.cfg
   The debug config also contains a way to 'refresh' your product in
   plone.reload.  You can access it like this::
 
-    http://<zope_host>:<zope_port>/@@reload
+    http://<plone_host>:<plone_port>/@@reload
 
   And also a way of recording doctests::
 
-    http://<zope_host>:<zope_port>/++resource++recorder/index.html
+    http://<plone_host>:<plone_port>/++resource++recorder/index.html
 
   Take a look at the config to see what other tools are available.
 
@@ -140,7 +183,7 @@ testing.cfg
 prod.cfg
   The prod config is similar to the dev and maint configs in that it sets up
   the proper ip-address and port numbers.  But it can also be used to set up a
-  Zope cluster, tune the number of threads being used, bump up zeo cache
+  cluster, tune the number of threads being used, bump up zeo cache
   sizes, set up pound, squid, nginx, etc.  This will be the config used to run
   the site in production mode.
 
@@ -148,18 +191,25 @@ prod.cfg
 Using Windows
 =============
 
-Download and double click install the following installers.
+Download and run the following installers.
 
-* `Python 2.7.12 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2712>`_
+* `Python 2.7.13 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2713>`_
 
-  * When installing, ensure the option for "Add python.exe to Path" is active
-  * After installing, make sure ``python.exe`` is in your Path
+  * You may choose either "Install for all users" or "Install just for me" (both work). On the installer's "Customize Python 2.7.13 (64-bit)" page, scroll down and click on the option to "Add python.exe to Path".
+  * After installing, make sure ``python.exe`` is in your PATH. To test if it is in your PATH, type "python" and hit Return; if you see a message ``'python' is not recognized as an internal or external command, operable program or batch file`` then it is not in your PATH and you may have to restart Windows, or you can add it to your PATH manually with the command ``PATH=$PATH;c:\Python27``.
+
+.. image:: https://raw.githubusercontent.com/plone/simple-plone-buildout/master/docs/customize-python-setup-add-to-path.jpg
 
 * `Microsoft Visual C++ Compiler for Python 2.7 <http://aka.ms/vcpython27>`_
-* `Git for Windows <https://git-for-windows.github.io>`_
-* Open PowerShell and install ``virtualenv``::
 
-    PS C:\Users\foo> pip install virtualenv
+* `Git for Windows <https://git-for-windows.github.io>`_
+
+  * When installing Git for Windows, use the default choices on all the installer questions. You may have to restart Windows for git.exe to appear in your PATH. To add it to your PATH manually, use the command ``PATH=$PATH;c:\Program Files\Git\bin``
+
+* Open PowerShell and install ``virtualenv``. You may have to use the command ``PATH=$PATH;c:\python27\scripts`` for pip.exe to appear in your PATH::
+
+    C:\Users\foo> pip install virtualenv
+
 
 You are now ready to follow the instructions at the top of this file, but keep
 in mind that your ``virtualenv`` will not have a ``bin`` directory. It will be
